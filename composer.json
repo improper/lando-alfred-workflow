@@ -1,0 +1,21 @@
+{
+  "name": "improper/lando-alfred-workflow",
+  "description": "Lando WorkFlow for Alfred",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Tyler Mills",
+      "email": "tylerssn@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Workflow\\": "src/"
+    }
+  },
+  "require-dev": {
+    "larapack/dd": "^1.1"
+  }
+}
