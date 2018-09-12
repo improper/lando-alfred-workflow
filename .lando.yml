@@ -5,6 +5,7 @@ services:
     type: php:7.2
     run:
       - composer global require escapestudios/symfony2-coding-standard:3.x-dev
+      - composer install
       - phpcs --config-set installed_paths /var/www/.composer/vendor/escapestudios/symfony2-coding-standard
       - phpcs --config-set default_standard Symfony
 
