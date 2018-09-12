@@ -1,0 +1,23 @@
+name: alfred-for-lando-workflow
+recipe: custom
+services:
+  php:
+    type: php:7.2
+    run:
+      - composer global require escapestudios/symfony2-coding-standard:3.x-dev
+      - phpcs --config-set installed_paths /var/www/.composer/vendor/escapestudios/symfony2-coding-standard
+      - phpcs --config-set default_standard Symfony
+
+tooling:
+  php:
+    description: "Run PHP within container"
+    service: php
+  composer:
+    description: "Run Composer"
+    service: php
+  phpcs:
+    description: PHP Code Sniffer
+    service: php
+  phpcbf:
+    description: PHP Code Sniffer Fixer
+    service: php
