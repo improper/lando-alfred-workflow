@@ -1,5 +1,9 @@
-name: alfred-for-lando-workflow
+name: alfred-workflow
 recipe: custom
+
+config:
+  webroot: .
+
 services:
   php:
     type: php:7.2
