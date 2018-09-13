@@ -1,0 +1,17 @@
+{
+  "name": "lando-plugin-alfred-workflow",
+  "version": "1.0.0-beta001",
+  "description": "Lando workflow for Alfred on OSX",
+  "main": "index.js",
+  "repository": "https://github.com/improper/lando-alfred-workflow",
+  "author": "Tyler Mills <tylerssn@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "eslint": "^5.5.0",
+    "eslint-config-google": "^0.10.0",
+    "lando": "https://github.com/improper/lando#issue-961/local-plugin-events-availability"
+  },
+  "scripts": {
+    "lint-fix": "eslint --fix ."
+  }
+}

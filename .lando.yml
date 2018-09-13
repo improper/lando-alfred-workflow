@@ -1,28 +1,17 @@
 name: alfred-workflow
-recipe: custom
-
-config:
-  webroot: .
 
 services:
-  php:
-    type: php:7.2
-    run:
-      - composer global require escapestudios/symfony2-coding-standard:3.x-dev
-      - composer install
-      - phpcs --config-set installed_paths /var/www/.composer/vendor/escapestudios/symfony2-coding-standard
-      - phpcs --config-set default_standard Symfony
+  node:
+    type: node:9
+    run: yarn
 
 tooling:
-  php:
-    description: "Run PHP within container"
-    service: php
-  composer:
-    description: "Run Composer"
-    service: php
-  phpcs:
-    description: PHP Code Sniffer
-    service: php
-  phpcbf:
-    description: PHP Code Sniffer Fixer
-    service: php
+  yarn:
+    description: 'Execute yarn within container'
+    service: node
+  node:
+    description: 'Execute node within container'
+    service: node
+  npm:
+    description: 'Execute npm within container'
+    service: node
