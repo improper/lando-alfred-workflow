@@ -67,7 +67,7 @@ module.exports = lando => {
             });
           });
 
-          return require('lodash').merge(tasks, tooling);
+          return lando.node._.merge(tasks, tooling);
         })
         .then(alfredItems => {
           return alfredItems.filter(commandData => {
