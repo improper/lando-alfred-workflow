@@ -9,7 +9,7 @@ module.exports = lando => {
   const path = require('path');
   const fs = require('fs');
   const os = require('os');
-  const https = require('follow-redirects').https;
+  const https = require('https');
   const exec = require('child_process').exec;
 
   /**
@@ -45,14 +45,22 @@ module.exports = lando => {
   const processInstall = (url, workflowPath, file) => {
     console.log(`Downloading: ${url}`);
 
-    // Download Workflow from URL
-    return https.get(url, response => {
+    const downloadUrl = (url, callback) => https.get(url, callback).on('error', lando.log.error);
+
+    const saveResponse = response => {
+      const isRedirect = (response.statusCode >= 300 && response.statusCode <= 399);
+      if (isRedirect) {
+        downloadUrl(response.headers.location, saveResponse);
+        return;
+      }
+
       if (response.statusCode !== 200 ) {
         const version = lando.alfredWorkflow.version;
         lando.log.error(`Attempted to download Lando Workflow version "${version}" @ ${url} but `
           + `received a ${response.statusCode} error.`);
         return;
       }
+
       lando.log.info(`Downloaded: ${url} to ${workflowPath}`);
       console.log(`Saving to temp: ${workflowPath}`);
 
@@ -64,7 +72,10 @@ module.exports = lando => {
         lando.log.info(`Saved ${workflowPath}`);
         install(workflowPath);
       });
-    }).on('error', lando.log.error);
+    };
+
+    // Download Workflow from URL
+    return downloadUrl(url, saveResponse);
   };
 
   /**
