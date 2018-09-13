@@ -1,9 +1,40 @@
 # Alfred Workflow for Lando
 
-1. Clone Repo
-2. Install `Lando.alfredworkflow`
-3. Click "Configure workflow and Variables"
+An Alfred Workflow for quickly executing Lando commands within project scope.
 
-   - Set `WORKFLOW_HOME` to the full path to this `index.php`
+## Install
 
-> This workflow implements PHP
+Alfred can only implement this plugin if it is installed as a global Lando plugin in `~/.lando/`
+
+1. Copy package to ~/.lando/plugins/lando-plugin-alfred-workflow
+2. Create `~/.lando/config.yml` and/or append:
+
+   ```yaml
+   plugins:
+     - lando-plugin-alfred-workflow
+   ```
+3. Install via the `lando alfred` command!
+
+## Alfred Workflow Examples
+
+Keyword: lando
+ - Result: List Projects
+ - Select Project
+    - Action: CMD+C - Copies Project to Clipboard
+    - Actions TAB/RETURN: Triggers "lando {project-name}" keyword
+    
+Keyword: lando {project-name}
+ - Result: List Project Tooling (Including custom tools)
+ - Select Tooling Command
+    - Action: CMD+C - Copies project-scope command to Clipboard
+    - Actions RETURN: Triggers Lando Command Execution Mode
+    
+Lando Command Execution Mode
+ - Result: Locks into command. Anything typed into Alfred at this point will be executed in the Lando cli within project scope.
+   - Example: `ssh -u root -c 'apt update'` followed by RETURN key will execute: `(cd /user/project-path && /usr/local/bin/lando ssh -u root -c 'apt update')`
+   - Example: `ssh -u root -c 'apt update'` followed by CMD+X key will copy: `(cd /user/project-path && /usr/local/bin/lando ssh -u root -c 'apt update')`
+
+
+## To Do
+
+1. Implement tests
