@@ -6,7 +6,7 @@
 'use strict';
 
 module.exports = lando => {
-  const NODE_VERSION = 10;
+  const NODE_VERSION = 8;
   const LANDO_NODE_VERSION = parseFloat(process.version.replace('v', ''));
 
   const validateLandoVersion = () => {
