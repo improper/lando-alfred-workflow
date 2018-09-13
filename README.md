@@ -6,14 +6,17 @@ An Alfred Workflow for quickly executing Lando commands within project scope.
 
 Alfred can only implement this plugin if it is installed as a global Lando plugin in `~/.lando/`
 
-1. Copy package to ~/.lando/plugins/lando-plugin-alfred-workflow
-2. Create `~/.lando/config.yml` and/or append:
+1. Download to global plugin directory
+   
+   `git clone https://github.com/improper/lando-alfred-workflow ~/.lando/plugins/lando-plugin-alfred-workflow`
+
+2. Create `~/.lando/config.yml` and append:
 
    ```yaml
    plugins:
      - lando-plugin-alfred-workflow
    ```
-3. Install via the `lando alfred` command!
+3. Install by running: `lando alfred`
 
 ## Alfred Workflow Examples
 
