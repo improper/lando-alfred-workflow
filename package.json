@@ -1,6 +1,6 @@
 {
   "name": "lando-plugin-alfred-workflow",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Lando workflow for Alfred on OSX",
   "main": "index.js",
   "repository": "https://github.com/improper/lando-alfred-workflow",
