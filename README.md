@@ -17,15 +17,15 @@ Add's some nice Lando features to Alfred as a workflow.
 
 ## How it Works
 
-1. List Projects
+1. List projects
 
    ![Lando Workflow Keyword](https://github.com/improper/lando-alfred-workflow/blob/master/docs/images/Screen%20Shot%202018-09-14%20at%202.41.34%20PM.png)
 
-2. Autocomplete & a Project
+2. Autocomplete & select a Project
 
    ![Project Selection](https://github.com/improper/lando-alfred-workflow/blob/master/docs/images/Screen%20Shot%202018-09-14%20at%202.41.57%20PM.png)
 
-3. List Project-scope commands 
+3. List project-scope commands 
 
    ![](https://github.com/improper/lando-alfred-workflow/blob/master/docs/images/Screen%20Shot%202018-09-14%20at%202.42.09%20PM.png)
 
