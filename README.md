@@ -2,6 +2,31 @@
 
 Quickly execute Lando commands within project scope via ALfred with this Lando plugin.
 
+- [How It Works](#how-it-works)
+- [Install Instructions](#install)
+
+## How it Works
+
+1. List Projects
+
+   ![Lando Workflow Keyword](https://github.com/improper/lando-alfred-workflow/blob/master/docs/images/Screen%20Shot%202018-09-14%20at%202.41.34%20PM.png)
+
+2. Autocomplete & a Project
+
+   ![Project Selection](https://github.com/improper/lando-alfred-workflow/blob/master/docs/images/Screen%20Shot%202018-09-14%20at%202.41.57%20PM.png)
+
+3. List Project-scope commands 
+
+   ![](https://github.com/improper/lando-alfred-workflow/blob/master/docs/images/Screen%20Shot%202018-09-14%20at%202.42.09%20PM.png)
+
+4. Select a project command and add arguments
+
+   ![](https://github.com/improper/lando-alfred-workflow/blob/master/docs/images/Screen%20Shot%202018-09-14%20at%202.42.31%20PM.png)
+
+5. Copy the command with CMD+C or Press Return to Execute
+
+   ![](https://github.com/improper/lando-alfred-workflow/blob/master/docs/images/Screen%20Shot%202018-09-14%20at%202.49.15%20PM.png)
+
 ## Install
 
 Alfred can only implement this plugin if it is installed as a global Lando plugin in `~/.lando/`
