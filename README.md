@@ -1,9 +1,19 @@
 # Alfred Workflow for Lando
 
-Quickly execute Lando commands within project scope via ALfred with this Lando plugin.
+Quickly execute Lando commands within project scope via Alfred
 
-- [How It Works](#how-it-works)
+- [What is this?](#what-is-this)
+- [What does it do?](#what-does-it-do)
+- [How it works](#how-it-works)
 - [Install Instructions](#install)
+
+## What is this
+
+A Lando plugin.
+
+## What does it do
+
+Add's some nice Lando features to Alfred as a workflow.
 
 ## How it Works
 
