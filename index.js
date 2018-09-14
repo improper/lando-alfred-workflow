@@ -6,10 +6,15 @@
 'use strict';
 
 module.exports = lando => {
-  const NODE_VERSION = 8;
-  const LANDO_NODE_VERSION = parseFloat(process.version.replace('v', ''));
+  lando.incrementMaxListeners = () => {
+    lando.events.setMaxListeners(lando.events.getMaxListeners() + 1);
+    return lando;
+  };
 
-  const validateLandoVersion = () => {
+  lando.validateLandoVersion = () => {
+    const LANDO_NODE_VERSION = parseFloat(process.version.replace('v', ''));
+    const NODE_VERSION = 8;
+
     if (LANDO_NODE_VERSION < NODE_VERSION) {
       lando.log.error('The Alfred Workflow module expects the Lando Node version to be' +
         ` ${NODE_VERSION} but instead got ${LANDO_NODE_VERSION}.`
@@ -19,9 +24,9 @@ module.exports = lando => {
     }
   };
 
-  validateLandoVersion();
-
+  lando.validateLandoVersion();
   lando.alfredWorkflow = require('./package.json');
+
   const allowWorkflowTasks = [
     // Production workflow
     (process.env.alfred_workflow_bundleid === 'com.landoflow.workflow').toString(),
@@ -37,7 +42,7 @@ module.exports = lando => {
   };
 
   // Add in our app tasks
-  lando.events.on('post-bootstrap', 5, lando => {
+  lando.incrementMaxListeners().events.on('post-bootstrap', 5, lando => {
     lando.tasks.add('alfred', require('./src/tasks/alfred/install')(lando));
 
     if (!allowWorkflowCommands()) {
